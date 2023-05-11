@@ -1,0 +1,16 @@
+.data-form__title {
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 22px;
+  margin-top: 0;
+  margin-bottom: 70px;
+  width: 100%;
+}
+
+@media screen and (min-width: 933px) {
+  .data-form__title {
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 48px;
+  }
+}

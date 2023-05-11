@@ -1,0 +1,25 @@
+.profile__add-btm {
+  border: 0;
+  background: transparent url('../../../images/add-botton.svg') no-repeat center;
+  padding: 0 0 46px;
+  width: calc(100% - 4px);
+  outline: 2px solid white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.profile__add-btm:hover {
+  opacity: .6;
+}
+
+@media screen and (min-width: 933px) {
+  .profile__add-btm {
+    background-size: 22px;
+    width: 146px;
+    height: 46px;
+    padding-bottom: 0;
+    margin-left: auto;
+    margin-top: 35px;
+    margin-right: 2px;
+  }
+}

@@ -1,0 +1,25 @@
+.data-form__btn-save {
+  color: #FFFFFF;
+  background-color: black;
+  width: 100%;
+  border: none;
+  font-size: 14px;
+  line-height: 17px;
+  border-radius: 2px;
+  cursor: pointer;
+  /*noinspection CssNonIntegerLengthInPixels*/
+  padding: 14.5px 0;
+}
+
+.data-form__btn-save:hover {
+  opacity: .8;
+}
+
+@media screen and (min-width: 933px) {
+  .data-form__btn-save {
+    font-size: 18px;
+    line-height: 22px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
