@@ -1,5 +1,5 @@
-# [Mesto React App](https://drogunov-s.github.io/mesto-react-public/)
-[GitHub pages](https://drogunov-s.github.io/mesto-react-public/)
+# [Mesto React App](https://drogunov-s.github.io/mesto-react-auth-public/)
+[GitHub pages](https://drogunov-s.github.io/mesto-react-auth-public/)
 
 ## Описание проекта
 
@@ -11,6 +11,7 @@
 - Редактирование профиля
 - Замена картинки аватара
 - Просмотр фотографии в широком режиме
+- Авторизация и аутефикация
 
 ## Быстрый запуск
 #### `npm start`
