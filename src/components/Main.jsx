@@ -7,7 +7,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onImageCard, onCardLike,
     const {name: userName, avatar: userAvatar, about: userDescription} = React.useContext(CurrentUserContext);
 
     return (
-        <main className="content">
+        <>
             <section className="profile page__profile" aria-label="Профиль">
                 <div className="profile__avatar-overlay"
                      onClick={onEditAvatar}
@@ -40,7 +40,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onImageCard, onCardLike,
                     ))
                 }
             </section>
-        </main>
+        </>
     );
 }
 

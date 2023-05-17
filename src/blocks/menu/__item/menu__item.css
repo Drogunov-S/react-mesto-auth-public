@@ -1,0 +1,13 @@
+.menu__item {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: Inter, serif;
+    /*DESKTOP*/
+    font-weight: 400;
+    line-height: 22px;
+    font-size: 18px;
+}
+
+.menu__item:hover {
+    opacity: .6;
+}

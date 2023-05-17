@@ -1,0 +1,8 @@
+.menu__btn {
+    background: transparent;
+    border: none;
+    /*DESKTOP*/
+    cursor: pointer;
+    padding: 0;
+    margin-left: 24px;
+}

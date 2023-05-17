@@ -1,4 +1,4 @@
-import {propertiesApi} from "./properties";
+import {propertiesApiCard} from "./properties";
 
 class Api {
     constructor({baseUrl, headers}) {
@@ -77,5 +77,5 @@ class Api {
     }
 }
 
-const api = new Api(propertiesApi);
+const api = new Api(propertiesApiCard);
 export default api;
