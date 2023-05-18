@@ -11,7 +11,7 @@ import {CurrentUserContext} from "../context/CurrentUserContext";
 import defaultAvatar from "../images/avatar.jpg"
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
-import {Route, Routes, useNavigate} from "react-router-dom";
+import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
 import Register from "./Register";
 import Login from "./Login";
 import ProtectedRouteElement from "./ProtectedRoute";
@@ -40,12 +40,6 @@ function App() {
 
     React.useEffect(() => {
         handleTokenCheck();
-        Promise.all([api.getUserInfo(), api.getInitialCards()])
-            .then(([userInfo, cards]) => {
-                setCurrentUser({...userInfo})
-                setCards(cards);
-            })
-            .catch(console.log);
     }, [])
 
     const [isEditAvatarPopup, setActiveEditAvatarPopup] = React.useState(false);
@@ -148,18 +142,26 @@ function App() {
             .catch(console.log);
     }
 
-    function handleLogin(loginUser) {
-        setLoginUser({...loginUser, loggedIn: true});
+    function handleLogin(token) {
+        if (token) {
+            localStorage.setItem('jwt', token);
+        }
+        handleTokenCheck(token);
     }
 
-    function handleTokenCheck() {
-        const jwt = localStorage.getItem('jwt');
+
+    function handleTokenCheck(token) {
+        const jwt = token ? token : localStorage.getItem('jwt');
         if (jwt) {
-            auth.checkToken(jwt)
-                .then(userLogin => {
+            Promise.all([auth.checkToken(jwt), api.getUserInfo(), api.getInitialCards()])
+                .then(([userLogin, userInfo, cards]) => {
                     setLoginUser({...userLogin, loggedIn: true});
+                    setCurrentUser({...userInfo})
+                    setCards(cards);
                     navigate('/', {replace: true});
+                    console.log('TEST TEST PASSED');
                 })
+                .catch(console.log);
         }
     }
 
@@ -182,6 +184,7 @@ function App() {
                     />
                     <main className="content">
                         <Routes>
+                            <Route path='*' element={<Navigate to={'/sign-in'} replace={true}/>}/>
                             <Route path='/' element={
                                 <ProtectedRouteElement
                                     element={Main}
@@ -200,7 +203,7 @@ function App() {
                                 element={<Login
                                     title='Вход'
                                     buttonText='Войти'
-                                    handleLogin={handleLogin}
+                                    onLogin={handleLogin}
                                 />}
                             />
                             <Route
